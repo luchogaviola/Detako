@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeTako</title>
+    <link rel="stylesheet" href="./index.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <section class="hero">
+        <header class="hero__header">
+            <nav class="navBar">
+                <div class="contenedor__logo">
+                    <img class="logoDeTako" src="../iconos/logoDeTako.png" alt="logo de DeTako">
+                </div>
+                <img class="logoUser" src="iconos/user.png" alt="">
+            </nav>
+        </header>
+
+        <main class="indexMain">
+
+            <div class="slider">
+                <ul class="slider-images">
+                    <li class="img-container">
+                        <img src="iconos/logohorizontal.jpg">
+                    </li>
+                    <li class="img-container">
+                        <img src="iconos/padelyfutbolhorizontal.jpg">
+                    </li>
+                    <li class="img-container">
+                        <img src="iconos/padelhorizontal.jpg">
+                    </li>
+                    <li class="img-container">
+                        <img src="iconos/futbolhorizontal.jpg">
+                    </li>
+                </ul>
+            </div>
+
+
+            <p class="nick__detako">De Tako</p>
+
+            <span class="nick__ubic">Jose Maria Paz 214, Castelar, Buenos Aires.</span>
+
+            <div class="div__verMapa">
+                <img class="logo__ubic" src="iconos/map-icon.png" alt="">
+                <p class="texto__verMapa">Ver en mapa</p>
+            </div>
+
+            <p class="tituloTurno">Elige tu turno</p>
+
+            <div class="containerInfo">
+                <div class="hideable-container card2 turnos__div2">
+                    <div class="title">
+                        <p class="nick__donde__estamos">Horarios Padel HOY</p>
+                        <div id="containerTurnosPadel"></div>
+                    </div>
+                </div>
+
+                <div class="hideable-container card2 turnos__div2">
+                    <div class="title">
+                        <p class="nick__donde__estamos">Horarios Futbol HOY</p>
+                        <div id="containerTurnosFutbol"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-centro" id="modal-centro">
+                <h2 class="tituloModel">¡Hola! Reserva tu turno</h2>
+                <button class="boton reservar" id="botonReservarCancha">Reservar</button>
+                <button class="boton cerrar" id="cerrar-modal-centro">Cerrar</button>
+            </div>
+
+
+            <p class="tituloTurno">Donde estamos</p>
+            <section class="donde__estamos">
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.2500198702464!2d-58.66372618449246!3d-34.64838828044798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcbf5b380cbd47%3A0x4c3c0e587ec6955f!2sDe%20Tako%20F%C3%BAtbol%20Padel%20Club!5e0!3m2!1ses!2sar!4v1669150494489!5m2!1ses!2sar"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="hideable-container card1">
+                    <div class="title">
+                        <p class="nick__donde__estamos">Ubicacion</p>
+                    </div>
+
+                    <hr>
+
+                    <input type="checkbox" class="activator" id="activator"></input>
+                    <label for="activator" class="down-arrow">v</label>
+                    <span class="content">Jose Maria Paz 214, Castelar, Buenos Aires, Argentina.</span>
+                </div>
+
+                <div class="hideable-container card2">
+                    <div class="title">
+                        <p class="nick__donde__estamos">Horarios del Club</p>
+                    </div>
+
+                    <hr>
+
+                    <input type="checkbox" class="activator" id="activator"></input>
+                    <label for="activator" class="down-arrow">v</label>
+
+                    <div>
+                        <div class="Flex-sc-1az401y-0 Horarios__Row-sc-jup7y8-2 dzyVWu">
+                            <h6 class="Heading__H6-sc-16yr1eg-5 Horarios__Day-sc-jup7y8-0 fiMAxs">Lunes a Viernes:</h6>
+                            <span class="Horarios__Times-sc-jup7y8-1 kHfhPH">9:00 a 0:00 am</span>
+                        </div>
+
+                        <div class="Flex-sc-1az401y-0 Horarios__Row-sc-jup7y8-2 dzyVWu">
+                            <h6 class="Heading__H6-sc-16yr1eg-5 Horarios__Day-sc-jup7y8-0 fiMAxs">Sabado a Domingo:</h6>
+                            <span class="Horarios__Times-sc-jup7y8-1 kHfhPH">9:00 a 0:00 am</span>
+                        </div>
+
+                        <div class="Flex-sc-1az401y-0 Horarios__Row-sc-jup7y8-2 dzyVWu">
+                            <h6 class="Heading__H6-sc-16yr1eg-5 Horarios__Day-sc-jup7y8-0 fiMAxs">Feriados:</h6>
+                            <span class="Horarios__Times-sc-jup7y8-1 kHfhPH">9:00 a 0:00 am</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="hideable-container card3">
+                    <div class="title">
+                        <div class="Flex-sc-1az401y-0 iGqOEx">
+                            <h4
+                                class="Heading__H4-sc-16yr1eg-3 DesktopLayoutstyled__AccordionTitle-sc-9a69s1-12 eQoaOL">
+                                Servicios del Club</h4>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <input type="checkbox" class="activator" id="activator"></input>
+                    <label for="activator" class="down-arrow">v</label>
+
+                </div>
+            </section>
+            <section>
+                <div id="array1">
+
+                </div>
+                <div id="array2">
+
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="entry">
+                <div class="widget">
+                    <ul>
+                        <li>item 1</li>
+                        <li>item 2</li>
+                        <li>item 3</li>
+                        <li>item 4</li>
+                        <li>item 5</li>
+                    </ul>
+                </div>
+                <div class="widget">
+                    <ul>
+                        <li>item 1</li>
+                        <li>item 2</li>
+                        <li>item 3</li>
+                        <li>item 4</li>
+                        <li>item 5</li>
+                    </ul>
+                </div>
+                <div class="widget">
+                    <ul>
+                        <li>item 1</li>
+                        <li>item 2</li>
+                        <li>item 3</li>
+                        <li>item 4</li>
+                        <li>item 5</li>
+                    </ul>
+                </div>
+            </div>
+
+        </footer>
+    </section>
+
+
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

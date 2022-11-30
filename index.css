@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hero {
+  background-color: rgb(250, 250, 250);
+}
+
+/* HEADER */
+
+.navBar {
+  background-color: #024aa8;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: sticky;
+  z-index: 1;
+  height: 11vh;
+  width: 100%;
+  top: 0;
+}
+
+.contenedor__logo {
+  align-self: center;
+  width: 30vh;
+}
+
+.logoDeTako {
+  width: 100%;
+  padding-left: 1.5rem;
+}
+
+.logoUser {
+  height: 35px;
+  align-self: center;
+  padding-right: 3rem;
+}
+
+/* MAIN */
+
+.indexMain {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  width: calc((100% - 90px) - 90px);
+  margin-top: 90px;
+}
+
+.slider {
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  margin: 50px auto 0;
+}
+
+.slider-images {
+  display: flex;
+  padding: 0;
+  width: 400%;
+  animation: slide 16s infinite alternate ease-in-out;
+}
+
+.img-container {
+  width: 100%;
+  list-style: none;
+}
+
+.slider img {
+  width: 100%;
+}
+
+@keyframes slide {
+  0% {
+    margin-left: 0%;
+  }
+
+  20% {
+    margin-left: 0%;
+  }
+
+  25% {
+    margin-left: -100%;
+  }
+
+  45% {
+    margin-left: -100%;
+  }
+
+  50% {
+    margin-left: -200%;
+  }
+
+  70% {
+    margin-left: -200%;
+  }
+
+  75% {
+    margin-left: -300%;
+  }
+
+  100% {
+    margin-left: -300%;
+  }
+
+}
+
+
+
+
+.nick__detako {
+  color: rgba(52, 73, 94, 255);
+  font-size: 45px;
+  margin-top: 15px;
+  margin-bottom: 35px;
+  font-weight: 600;
+}
+
+.div__verMapa {
+  display: flex;
+  flex-direction: row;
+  margin-top: 4px;
+  margin-bottom: 20px;
+}
+
+.logo__ubic {
+  height: 30px;
+}
+
+.texto__verMapa {
+  align-self: center;
+}
+
+.tituloTurno {
+  color: rgba(52, 73, 94, 255);
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.donde__estamos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "item1    item2"
+    "item1    item3"
+    "item1    item4";
+  gap: 2rem;
+}
+
+.map {
+  grid-area: item1;
+}
+
+.card1 {
+  grid-area: item2;
+}
+
+.card2 {
+  grid-area: item3;
+}
+
+.card3 {
+  grid-area: item4;
+}
+
+.hideable-container {
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  border: 1px solid rgb(211, 211, 211);
+  padding: 1rem;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.content {
+  font-size: .875rem;
+  line-height: 1.25rem;
+}
+
+.activator {
+  display: none;
+}
+
+.down-arrow {
+  position: absolute;
+  top: 0.5rem;
+  right: 1.5rem;
+}
+
+
+.activator:checked~.content {
+  display: none;
+}
+
+.nick__donde__estamos {
+  color: rgb(52, 73, 94);
+  font-size: 14px;
+  font-weight: 600;
+  padding-bottom: 5px;
+  width: 100%;
+}
+
+.kHfhPH {
+  font-size: 14px;
+  color: rgb(102, 102, 102);
+}
+
+.fiMAxs {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  line-height: normal;
+  font-size: 14px;
+  color: rgb(102, 102, 102);
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.dzyVWu {
+  display: flex;
+  flex-flow: row wrap;
+  -webkit-box-pack: start;
+  place-content: stretch flex-start;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.eQoaOL {
+  color: rgb(52, 73, 94);
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-bottom: 0.5px solid rgb(243, 243, 243);
+  font-size: 14px;
+  font-weight: 600;
+  padding-bottom: 5px;
+  width: 100%;
+}
+
+.footer {
+  position: relative;
+  background-color: #024aa8;
+  color: white;
+  padding-top: 200px;
+  margin-top: -15px;
+
+}
+
+footer::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  right: 0;
+  top: 0;
+  background-color: rgb(250, 250, 250);
+  clip-path: ellipse(61.36% 62.27% at 49.17% 4%);
+}
+
+footer .entry {
+  display: flex;
+  justify-content: space-around;
+  height: 25vh;
+}
+
+.containerInfo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 5rem;
+
+}
+
+
+.turnos__div2 {
+  width: 250px;
+}
+
+.disponible {
+  padding: 5px;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.horariosIndividuales {
+  align-self: center;
+}
+
+.boton {
+  border: 0;
+  background-color: var(--clr-black);
+  color: var(--clr-white);
+  padding: .75em 1em;
+  border-radius: 500vmax;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: .75rem;
+}
+
+.botonReservar.active {
+  background-color: rgb(202, 37, 37);
+  color: white;
+}
+
+.tituloModel {
+  font-size: 2rem;
+  align-self: center;
+}
+
+.boton.reservar {
+  background-color: rgb(94, 93, 93);
+}
+
+.modal-centro {
+  position: fixed;
+  width: 40%;
+  background-color: #024aa8;
+  color: white;
+  padding:2rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(.5);
+  transition: .3s;
+  box-shadow: 0 0 0 500vmax rgba(0, 0, 0, .5);
+  align-self: center;
+}
+
+.modal-centro.active {
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
