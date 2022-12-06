@@ -225,16 +225,36 @@ const horariosDisponiblesFutbol = [
   },
 ];
 
+let canchasReservadas = JSON.parse(localStorage.getItem("Cancha-reservada"));
+
+if (!canchasReservadas) {
+  canchasReservadas = []
+}
+
+canchasReservadas.forEach(element => {
+  if (element.value === "padel") {
+    
+    const horarioP = horariosDisponiblesPadel.find((el) => el.id == element.id);
+    horarioP.disponibilidad = false;
+
+  } else {
+    const horarioF = horariosDisponiblesFutbol.find((el) => el.id == element.id);
+    horarioF.disponibilidad = false;
+  }
+
+});
+
 const mostrarHorarios = (element, arr) => {
   document.querySelector(element).innerHTML = "";
   for (i = 0; i < arr.length; i++) {
     document.querySelector(element).innerHTML += `
         <div class="disponible">
-            <p class="horariosIndividuales">${arr[i].horarioInicio}hs ${arr[i].horarioFinal}hs</p> <button value = "${arr[i].cancha}" id = "${arr[i].id}" class='botonReservar' >Reservar</button>
+            <p class="horariosIndividuales">${arr[i].horarioInicio}hs ${arr[i].horarioFinal}hs</p> <button value = "${arr[i].cancha}" data-disponibilidad = "${arr[i].disponibilidad ? "disponible" : "Reservado"}" id = "${arr[i].id}" class='botonReservar ${arr[i].disponibilidad ? "" : 'active'}'>${arr[i].disponibilidad ? "Reservar" : 'Reservado'}</button>
         </div>
         `;
   }
 };
+
 
 mostrarHorarios("#containerTurnosPadel", horariosDisponiblesPadel);
 mostrarHorarios("#containerTurnosFutbol", horariosDisponiblesFutbol);
@@ -256,7 +276,7 @@ const abreModal = (id, value) => {
 
 for(let boton of arrayBotones){
     boton.addEventListener("click", (e) => {
-        if(e.target.dataset.disponibilidad){
+        if(e.target.dataset.disponibilidad === "Reservado"){
             modalReservado.classList.add('active')
 
             cerrarModalReservado.addEventListener("click", () => {
@@ -277,6 +297,25 @@ cerrarModalCentro.addEventListener("click", () => {
     modalCentro.classList.remove("active");
 })
 
+const reservadoTimer = () => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+  
+  Toast.fire({
+    icon: 'success',
+    title: 'Se ha reservado el turno'
+  })
+}
+
 
 const botonReservarCancha = document.querySelector("#botonReservarCancha");
 
@@ -285,22 +324,66 @@ botonReservarCancha.addEventListener("click", () => {
     const value = localStorage.getItem('value')
 
   if (value == "padel") {
-    const horarioPadel = horariosDisponiblesPadel.find((el) => el.id == id);
-    horarioPadel.disponibilidad = horarioPadel.disponibilidad ? false:alert("esta reservado")
+    horariosDisponiblesPadel.find((el) => el.id == id);
     const botonReservado = document.getElementById(id);
+
+    let canchasReservadas = JSON.parse(localStorage.getItem("Cancha-reservada"));
+
+    if (!canchasReservadas) {
+      canchasReservadas = []
+    }
+
+    const canchaEnStorage = {
+      id,
+      value,
+    }
+
+    canchasReservadas.push(canchaEnStorage);
+  
+    localStorage.setItem("Cancha-reservada", JSON.stringify(canchasReservadas));
+    
+
     botonReservado.classList.add("active");
     botonReservado.innerHTML = "Reservado";
     botonReservado.dataset.disponibilidad = "Reservado"
     modalCentro.classList.remove("active");
-  } else {
-    const horarioFulbo = horariosDisponiblesFutbol.find((el) => el.id == id);
-    horarioFulbo.disponibilidad = horarioFulbo.disponibilidad ? false:alert("esta reservado")
+    reservadoTimer();
+    } else {
+    horariosDisponiblesFutbol.find((el) => el.id == id);
     const botonReservado = document.getElementById(id);
+
+    let canchasReservadas = JSON.parse(localStorage.getItem("Cancha-reservada"));
+
+    if (!canchasReservadas) {
+      canchasReservadas = []
+    }
+
+    const canchaEnStorage = {
+      id,
+      value,
+    }
+
+    canchasReservadas.push(canchaEnStorage);
+  
+    localStorage.setItem("Cancha-reservada", JSON.stringify(canchasReservadas));
+
     botonReservado.classList.add("active");
     botonReservado.innerHTML = "Reservado";
     botonReservado.dataset.disponibilidad = "Reservado"
     modalCentro.classList.remove("active");
+    reservadoTimer();
   }
+
 });
+
+
+
+
+
+
+
+
+
+ 
 
 
