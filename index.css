@@ -305,7 +305,7 @@
   margin-top: 9.5%;
   background-color: #024aa8;
   color: white;
-  padding:2rem;
+  padding: 2rem;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -330,7 +330,7 @@
   margin-top: 9.5%;
   background-color: #024aa8;
   color: white;
-  padding:2rem;
+  padding: 2rem;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -377,14 +377,14 @@ footer::before {
 
 footer .entry {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   height: 28vh;
   padding: 0 70px 0 70px;
 }
 
 
-.logoDeTakoFooter{
-    width: 60%;
+.logoDeTakoFooter {
+  width: 60%;
 }
 
 .text__abajo__logo {
@@ -425,4 +425,33 @@ footer .entry {
   padding-top: 30px;
   font-size: 25px;
   font-weight: 600;
+}
+
+.loginMain {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 90px;
+  margin-bottom: 90px;
+}
+
+.botonTemperatura {
+  height: 8%;
+  padding: 10px;
+  font-size: 2rem;
+  background-color: #024aa8;
+  color: white;
+}
+
+.flexing {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  height: 10%;
+  padding: 20px;
+  font-size: 2rem;
+  align-self: center;
 }

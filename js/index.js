@@ -9,8 +9,7 @@ class Turno {
   }
 }
 
-const horariosDisponiblesPadel = [
-  {
+const horariosDisponiblesPadel = [{
     horarioInicio: "9",
     horarioFinal: "10",
     disponibilidad: true,
@@ -117,8 +116,7 @@ const horariosDisponiblesPadel = [
   },
 ];
 
-const horariosDisponiblesFutbol = [
-  {
+const horariosDisponiblesFutbol = [{
     horarioInicio: "9",
     horarioFinal: "10",
     disponibilidad: true,
@@ -233,7 +231,7 @@ if (!canchasReservadas) {
 
 canchasReservadas.forEach(element => {
   if (element.value === "padel") {
-    
+
     const horarioP = horariosDisponiblesPadel.find((el) => el.id == element.id);
     horarioP.disponibilidad = false;
 
@@ -269,32 +267,32 @@ const cerrarModalReservado = document.querySelector('#cerrar-modal-reservado')
 
 
 const abreModal = (id, value) => {
-    localStorage.setItem('id',id)
-    localStorage.setItem('value',value)
-    modalCentro.classList.add("active");
+  localStorage.setItem('id', id)
+  localStorage.setItem('value', value)
+  modalCentro.classList.add("active");
 }
 
-for(let boton of arrayBotones){
-    boton.addEventListener("click", (e) => {
-        if(e.target.dataset.disponibilidad === "Reservado"){
-            modalReservado.classList.add('active')
+for (let boton of arrayBotones) {
+  boton.addEventListener("click", (e) => {
+    if (e.target.dataset.disponibilidad === "Reservado") {
+      modalReservado.classList.add('active')
 
-            cerrarModalReservado.addEventListener("click", () => {
-                modalReservado.classList.remove("active");
-            })
+      cerrarModalReservado.addEventListener("click", () => {
+        modalReservado.classList.remove("active");
+      })
 
-            
 
-        } else {
-            abreModal(e.target.id, e.target.value)
-        }
-    })
+
+    } else {
+      abreModal(e.target.id, e.target.value)
+    }
+  })
 }
 
 
 
 cerrarModalCentro.addEventListener("click", () => {
-    modalCentro.classList.remove("active");
+  modalCentro.classList.remove("active");
 })
 
 const reservadoTimer = () => {
@@ -309,7 +307,7 @@ const reservadoTimer = () => {
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
   })
-  
+
   Toast.fire({
     icon: 'success',
     title: 'Se ha reservado el turno'
@@ -320,8 +318,8 @@ const reservadoTimer = () => {
 const botonReservarCancha = document.querySelector("#botonReservarCancha");
 
 botonReservarCancha.addEventListener("click", () => {
-    const id = localStorage.getItem('id')
-    const value = localStorage.getItem('value')
+  const id = localStorage.getItem('id')
+  const value = localStorage.getItem('value')
 
   if (value == "padel") {
     horariosDisponiblesPadel.find((el) => el.id == id);
@@ -339,16 +337,18 @@ botonReservarCancha.addEventListener("click", () => {
     }
 
     canchasReservadas.push(canchaEnStorage);
-  
-    localStorage.setItem("Cancha-reservada", JSON.stringify(canchasReservadas));
-    
 
-    botonReservado.classList.add("active");
-    botonReservado.innerHTML = "Reservado";
-    botonReservado.dataset.disponibilidad = "Reservado"
+    localStorage.setItem("Cancha-reservada", JSON.stringify(canchasReservadas));
+
+    setTimeout(() => {
+      botonReservado.classList.add("active");
+      botonReservado.innerHTML = "Reservado";
+      botonReservado.dataset.disponibilidad = "Reservado"
+    }, 2000)
+
     modalCentro.classList.remove("active");
     reservadoTimer();
-    } else {
+  } else {
     horariosDisponiblesFutbol.find((el) => el.id == id);
     const botonReservado = document.getElementById(id);
 
@@ -364,12 +364,15 @@ botonReservarCancha.addEventListener("click", () => {
     }
 
     canchasReservadas.push(canchaEnStorage);
-  
+
     localStorage.setItem("Cancha-reservada", JSON.stringify(canchasReservadas));
 
-    botonReservado.classList.add("active");
-    botonReservado.innerHTML = "Reservado";
-    botonReservado.dataset.disponibilidad = "Reservado"
+    setTimeout(() => {
+      botonReservado.classList.add("active");
+      botonReservado.innerHTML = "Reservado";
+      botonReservado.dataset.disponibilidad = "Reservado"
+    }, 2000)
+
     modalCentro.classList.remove("active");
     reservadoTimer();
   }
@@ -377,13 +380,18 @@ botonReservarCancha.addEventListener("click", () => {
 });
 
 
+const a = document.getElementById("container");
+const botonTemperatura = document.querySelector(".botonTemperatura");
 
+fetch('https://api.openweathermap.org/data/2.5/weather?lat=-34.6483883&lon=-58.6615375&appid=ddaa58a6e603b2753bf1e3c93a764f94')
+  .then(response => response.json())
+  .then((data) => {
 
+    botonTemperatura.addEventListener('click', () => {
+      const kelvin = 273.15
+      a.innerHTML = Math.floor(data.main.temp - kelvin) + "ºC";
+    })
 
+    console.log(data)
 
-
-
-
- 
-
-
+  })
